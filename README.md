@@ -4,10 +4,9 @@
 
 In this assignment we will be helping Jill apply machine learning to solve a real-world challenge: **credit risk**. 
 
-## Background to Machine Learning 
+## Machine Learning 
 
-Machine learning comprises a broad range of analytical tools, which can be categorized into **“supervised”** and **“unsupervised”** learning tools. Supervised machine learning involves building a statistical model for predicting or estimating an output based on one or more inputs.  In unsupervised learning, a dataset is analyzed without a dependent variable to estimate or predict. Rather, the data is analyzed to show patterns and structures in a dataset. Machine learning is a particularly powerful tool for prediction purposes. By identifying relationships or patterns in a data sample, it is able to create a model incorporating those relationships that lead to the most powerful out-of-sample predictions. Such a model is created by running variables and the model on subsamples of the data to identify the most powerful predictors, and then testing the model on many different data subsamples. This can be done thousands of times so that the model can “learn” from the data and improve its predictive performance.  
-
+Machine learning comprises a broad range of analytical tools, which can be categorized into **“supervised”** and **“unsupervised”** learning tools. Supervised machine learning involves building a statistical model for predicting or estimating an output based on one or more inputs.  In unsupervised learning, a dataset is analyzed without a dependent variable to estimate or predict.  
 
 ## Machine learning methods
 
@@ -38,10 +37,23 @@ Data Sources: Loan Data: LoanStats_2019Q1.csv
 
 ## Analysis
 
-Credit risk is an inherently unbalanced classification problem, as **good loans** easily outnumber **risky loans**. Therefore, we need to employ different techniques to train and evaluate models with unbalanced classes. A Look at our data revels that we have information of 68470 low risk clients and only 347 high risk clients
-So here we oversampled the data using the **RandomOverSampler** and **SMOTE algorithms**, and undersampled the data using the **ClusterCentroids algorithm**. Then, we used a combinatorial approach of over- and undersampling using the **SMOTEENN algorithm**. Next, we compared the two new machine learning models that reduce bias, **BalancedRandomForestClassifier** and **EasyEnsembleClassifier**, to predict credit risk
+Credit risk is an inherently unbalanced classification problem, as **good loans** easily outnumber **risky loans**. Therefore, we need to employ different techniques to train and evaluate models with unbalanced classes. A Look at our data revels that we have information of 68470 low risk instances and only 347 high risk instances
+
+We will use and compare  various techniques such as resampling  and ensemble classifiers to see which one technique will help us predict the High risk instances better.  
+
+Resampling techniques include - 
+
+* Oversampling the data using the **RandomOverSampler** and **SMOTE algorithms**
+* Undersampling the data using the **ClusterCentroids** algorithm. 
+* Combinatorial approach of over-and undersampling using the **SMOTEENN algorithm**. 
+
+Ensemble Classifiers 
+
+* BalancedRandomForestClassifier 
+* EasyEnsembleClassifier
 
 ### Using Resampling Techniques to Predict Credit Risk 
+
 Evaluate three machine learning models by using resampling to determine which is better at predicting credit risk
 
 #### Oversampling - RandomOverSampler
