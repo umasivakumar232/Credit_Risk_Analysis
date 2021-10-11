@@ -126,7 +126,7 @@ A balanced random forest randomly under-samples each boostrap sample to balance 
 
 ##### Interpretations of the results - Balanced Random Forest Classifier
 
-A look at the imbalance classification report indicates that the BRF classifier method results so much better than the ones got from the resampling methods. Here the F1 score of high risk instances goes up to 0.06 and the low risk instances goes up to 0.93.
+A look at the imbalance classification report indicates that the BRF classifier method results were so much better than the ones we got from the resampling methods. Here the F1 score of high risk instances went up to 0.06 and the low risk instances went up to 0.93.
 
 
 #### Ensemble classifier - Easy Ensemble ADABoost Classifier
@@ -137,7 +137,7 @@ Adaboost uses stumps (decision tree with only one split). Adaboost is basically 
 
 ##### Interpretations of the results - Easy Ensemble ADABoost Classifier
 
-A look at the imbalance classification report indicates a vast improvement in the results results when we use the easy ensemble ADABoost classifier. Here the F1 score of high risk instances goes up to 0.16 and the low risk instances goes up to 0.97.
+A look at the imbalance classification report indicates a vast improvement in the results when we use the easy ensemble ADABoost classifier. Here the F1 score of high risk instances went up to 0.16 and the low risk instances went up to 0.97.
 
 ## Conclusions and Recommendations
 
