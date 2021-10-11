@@ -41,7 +41,7 @@ Data Sources: Loan Data: LoanStats_2019Q1.csv
 Credit risk is an inherently unbalanced classification problem, as **good loans** easily outnumber **risky loans**. Therefore, we need to employ different techniques to train and evaluate models with unbalanced classes. A Look at our data revels that we have information of 68470 low risk clients and only 347 high risk clients
 So here we oversampled the data using the **RandomOverSampler** and **SMOTE algorithms**, and undersampled the data using the **ClusterCentroids algorithm**. Then, we used a combinatorial approach of over- and undersampling using the **SMOTEENN algorithm**. Next, we compared the two new machine learning models that reduce bias, **BalancedRandomForestClassifier** and **EasyEnsembleClassifier**, to predict credit risk
 
-### Resampling 
+### Using Resampling Techniques to Predict Credit Risk 
 Evaluate three machine learning models by using resampling to determine which is better at predicting credit risk
 
 #### Oversampling - RandomOverSampler
@@ -78,6 +78,59 @@ Cluster centroid undersampling is akin to SMOTE. The algorithm identifies cluste
 
 ##### Interpretations of the results - ClusterCentroids Undersampling
 
-A look at the imbalance classification report indicates that the cluster centroid method results are poorer than the oversampler method results in predicting both High risk as well as low risk instances  Indicated by an F1 score of 0.01 for high risk instances and 0.57 for low risk instances 
+A look at the imbalance classification report indicates that the cluster centroid method results are poorer than the oversampler method results in predicting both high risk as well as low risk instances. Indicated by an F1 score of 0.01 for high risk instances and 0.57 for low risk instances 
 
+
+#### Combination Sampling  - SMOTEENN
+
+SMOTEENN combines the SMOTE and Edited Nearest Neighbors (ENN) algorithms. SMOTEENN is a two-step process
+* Oversample the minority class with SMOTE.
+* Clean the resulting data with an undersampling strategy. If the two nearest neighbors of a data point belong to two different classes, that data point is dropped.
+
+<img width="575" alt="Smoteenn" src="https://user-images.githubusercontent.com/85518330/136825978-02d258eb-162d-4e03-9adb-39c302a2c872.png">
+
+<img width="495" alt="Smoteenn1" src="https://user-images.githubusercontent.com/85518330/136830950-4fc87e9a-7278-4de4-a88d-6cba4ee389ba.png">
+
+##### Interpretations of the results - SMOTEENN
+
+A look at the imbalance classification report indicates that the SMOTEENN method results are similar to that of the Oversampling methods in predicting both high risk as well as low risk instances. Indicated by an F1 score of 0.02 for high risk instances and 0.72 for low risk instances 
+
+### Overall Results from resampling methods
+
+Overall the results of all the resampling methods were poor for predicting high risk instances.
+
+### Using Ensemble Classifiers to Predict Credit Risk
+
+The concept of ensemble learning is the process of combining multiple models, like decision tree algorithms, to help improve the accuracy and robustness, as well as decrease variance of the model, and therefore increase the overall performance of the mode. Here we will compare two ensemble algorithms to determine which algorithm results in the best performance. we train a **Balanced Random Forest Classifier** and an **Easy Ensemble AdaBoost classifier**. 
+
+#### Ensemble classifier - Balanced Random Forest Classifier
+
+A balanced random forest randomly under-samples each boostrap sample to balance it. 
+
+<img width="505" alt="BalancedRandomForest" src="https://user-images.githubusercontent.com/85518330/136834463-adf34e6d-ffd9-482e-bddf-cd7cf8471e62.png">
+
+<img width="509" alt="BalancedRandomForest1" src="https://user-images.githubusercontent.com/85518330/136834488-039339d1-17a8-4651-86d9-4eadf672e57e.png">
+
+
+##### Interpretations of the results - Balanced Random Forest Classifier
+
+A look at the imbalance classification report indicates that the BRF classifier method results so much better than the ones got from the resampling methods. Here the F1 score of high risk instances goes up to 0.06 and the low risk instances goes up to 0.93.
+
+
+#### Ensemble classifier - Easy Ensemble ADABoost Classifier
+
+Adaboost uses stumps (decision tree with only one split). Adaboost is basically a forest of stumps. These stumps are called weak learners. These weak learners have high bias and low variance. Stumps use one feature at a time
+
+<img width="529" alt="ADAboost" src="https://user-images.githubusercontent.com/85518330/136838220-d386fe66-4617-442c-97fd-f9674ef31ba5.png">
+
+##### Interpretations of the results - Easy Ensemble ADABoost Classifier
+
+A look at the imbalance classification report indicates a vast improvement in the results results when we use the easy ensemble ADABoost classifier. Here the F1 score of high risk instances goes up to 0.16 and the low risk instances goes up to 0.97.
+
+## Conclusions and Recommendations
+
+From the preformance of all the models it is quite clear that the **Easy Ensemble ADABoost Classifier** results were better than all the other techniques for prediciting High Risk loans. Aspects of this technique that worked in our favor are the following 
+
+- Combining weak learners into a strong learner. This helps reduce the overfitting issue that such models generally may have.
+- The weak learners are not combined at the same time. Instead, they are used sequentially, as one model learns from the mistakes of the previous model.
 
