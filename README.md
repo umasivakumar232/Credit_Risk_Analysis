@@ -129,7 +129,7 @@ A balanced random forest randomly under-samples each boostrap sample to balance 
 A look at the imbalance classification report indicates that the BRF classifier method results were so much better than the ones we got from the resampling methods. Here the F1 score of high risk instances went up to 0.06 and the low risk instances went up to 0.93.
 
 
-#### Ensemble classifier - Easy Ensemble ADABoost Classifier
+#### Ensemble Classifier - Easy Ensemble ADABoost Classifier
 
 Adaboost uses stumps (decision tree with only one split). Adaboost is basically a forest of stumps. These stumps are called weak learners. These weak learners have high bias and low variance. Stumps use one feature at a time
 
@@ -141,7 +141,7 @@ A look at the imbalance classification report indicates a vast improvement in th
 
 ## Conclusions and Recommendations
 
-From the preformance of all the models it is quite clear that the **Easy Ensemble ADABoost Classifier** results were better than all the other techniques for prediciting High Risk loans. Aspects of this technique that worked in our favor are the following 
+From the performance of all the models it is quite clear that the **Easy Ensemble ADABoost Classifier** results were better than all the other techniques for prediciting High Risk loans. Aspects of this technique that worked in our favor are the following 
 
 - Combining weak learners into a strong learner. This helps reduce the overfitting issue that such models generally may have.
 - The weak learners are not combined at the same time. Instead, they are used sequentially, as one model learns from the mistakes of the previous model.
